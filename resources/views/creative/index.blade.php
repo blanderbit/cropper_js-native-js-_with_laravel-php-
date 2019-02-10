@@ -15,7 +15,8 @@
             @forelse($creatives as $creativ)
                 <div class="card-body">
                     <div class="card-body__image" style="background-image: url({{ $creativ["image_thumb"] }});">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAA1BMVEX///+nxBvIAAAAIUlEQVRoge3BgQAAAADDoPlTX+EAVQEAAAAAAAAAAACPASd0AAGLis+ZAAAAAElFTkSuQmCC">
+                        <img id="image"
+                             src="{{'http://127.0.0.1:8000/storage/creatives/new/'.$creativ->image}}">
                     </div>
                     <p class="card-body__title">{{ $creativ["description"] }}</p>
                     <a click="{{$creativ["src"]}}" href="{{ route('creatives.edit', [$creativ["image"]])  }}"

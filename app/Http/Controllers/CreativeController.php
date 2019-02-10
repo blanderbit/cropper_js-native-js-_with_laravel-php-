@@ -60,7 +60,7 @@ class CreativeController extends Controller
         $creativetype->start_position_x = $request->start_position_x;
         $creativetype->start_position_y= $request->start_position_y;
         $creativetype->aspectRatio = $request->aspectRatio;
-        $creativetype->image = "{$filename}.{$original_image->getClientOriginalExtension()}";
+        $creativetype->image = "{$filename}.png";
         $creativetype->original_image = "{$filename}.png";
         $creativetype->category_id = $request->category_id;
         $creativetype->save();
@@ -69,7 +69,7 @@ class CreativeController extends Controller
         $creativetype->tags()->attach($tags);
         $response = Storage::disk('public')->put("/creatives/new/{$filename}.png",
         file_get_contents($new_image->getRealPath()), 'public');
-        Storage::disk('public')->put("/creatives/old/{$filename}.{$original_image->getClientOriginalExtension()}",
+        Storage::disk('public')->put("/creatives/old/{$filename}.png",
         file_get_contents($original_image->getRealPath()), 'public');
         return response()->json(['success' => $response], $response ? 200 : 400);
 

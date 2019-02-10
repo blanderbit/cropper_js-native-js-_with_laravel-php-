@@ -6,7 +6,7 @@
             <div class="creative-post__header">
                 <div class="creative-post__cropper">
                     <img id="image"
-                         src="{{ asset("/creatives/old/".$creatives->image) }}"
+                         src="{{'http://127.0.0.1:8000/storage/creatives/old/'.$creatives->image}}"
                          start_position_y="{{$creatives->start_position_y}}"
                          start_position_x="{{$creatives->start_position_x}}"
                          width_im="{{$creatives->width}}"
@@ -152,23 +152,23 @@
             aspectRatio: (function () {
                 let button = document.querySelectorAll(".bth");
                 {{$creatives->type_id}}
-                    switch ( {{$creatives->type_id}} ) {
-                    case 1:
-                        button[0].classList.add('active');
-                        break;
-                    case 2:
-                        button[1].classList.add('active');
-                        break;
-                    case 3:
-                        button[2].classList.add('active');
-                        break;
-                    case 4:
-                        button[3].classList.add('active');
-                        break;
-                    default:
-                        button[4].classList.add('active');
-                        break;
-                }
+                    {{--switch ( {{$creatives->type_id}} ) {--}}
+                    {{--case 1:--}}
+                        {{--button[0].classList.add('active');--}}
+                        {{--break;--}}
+                    {{--case 2:--}}
+                        {{--button[1].classList.add('active');--}}
+                        {{--break;--}}
+                    {{--case 3:--}}
+                        {{--button[2].classList.add('active');--}}
+                        {{--break;--}}
+                    {{--case 4:--}}
+                        {{--button[3].classList.add('active');--}}
+                        {{--break;--}}
+                    {{--default:--}}
+                        {{--button[4].classList.add('active');--}}
+                        {{--break;--}}
+                // }
                 return {{$creatives->aspectRatio}}
             })(),
             data: {
